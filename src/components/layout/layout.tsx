@@ -14,6 +14,7 @@ const BodyWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: "150vh";
 `;
 
 export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
@@ -24,7 +25,7 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
     <GlobalStyle />
     <BodyWrapper>
       <Header {...props} />
-      <div style={{ minHeight: "100vh" }}>{children}</div>
+      {children}
       <Footer {...props} />
     </BodyWrapper>
   </>
