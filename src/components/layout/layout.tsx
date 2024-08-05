@@ -14,7 +14,6 @@ const BodyWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 `;
 
 export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
@@ -25,14 +24,14 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
     <GlobalStyle />
     <BodyWrapper>
       <Header {...props} />
-      {children}
+      <div style={{ minHeight: "100vh" }}>{children}</div>
       <Footer {...props} />
     </BodyWrapper>
   </>
 );
 
 export const query = graphql`
-  fragment LayoutData on ContentfulLayout{
+  fragment LayoutData on ContentfulLayout {
     facebookUrl
     instagramUrl
     whatsappUrl
@@ -42,4 +41,4 @@ export const query = graphql`
     }
     specialPages
   }
-`
+`;
