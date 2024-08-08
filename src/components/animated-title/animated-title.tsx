@@ -32,6 +32,7 @@ const TitleAnimation = styled(motion.div)`
 const Title = styled.div`
   color: #e9e5d9; //Alabaster
   font-weight: bold;
+
   font-size: 40px;
   display: flex;
   width: 100%;
