@@ -36,7 +36,7 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
             <Root color={color} ref={ref}>
               {sections?.map((page) => (
                 page && <DropdownMenuButton
-                  linkUrl={page.slug}
+                  linkUrl={`/${page.slug}`}
                   label={page.title}
                   color={color}
                 />

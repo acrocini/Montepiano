@@ -32,12 +32,12 @@ export const Header: FC<HeaderProps> = ({
 }) => {
   const completeSections = [
     specialPages?.includes("eventi-notizie-curiosita") && {
-      slug: "/events-news-curiosity",
+      slug: "events-news-curiosity",
       title: "Eventi, Notizie e Curiosità",
     },
     ...(sections ?? []),
     specialPages?.includes("contatti") && {
-      slug: "/contacts",
+      slug: "contacts",
       title: "Contatti",
     },
   ].filter(Boolean) as DropdownMenuProps["sections"];
