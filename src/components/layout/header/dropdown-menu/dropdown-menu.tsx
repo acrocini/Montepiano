@@ -6,7 +6,6 @@ import {
   MainColorPalette,
   MainColorPaletteType,
 } from "../../../../constants/colors";
-import { FC } from "react";
 
 export interface DropdownMenuProps extends Pick<Queries.LayoutDataFragment, "sections"> {
   color: MainColorPaletteType;

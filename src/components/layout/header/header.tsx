@@ -31,6 +31,10 @@ export const Header: FC<HeaderProps> = ({
   ...props
 }) => {
   const completeSections = [
+    {
+      slug: "",
+      title: "Home",
+    },
     specialPages?.includes("eventi-notizie-curiosita") && {
       slug: "events-news-curiosity",
       title: "Eventi, Notizie e Curiosità",

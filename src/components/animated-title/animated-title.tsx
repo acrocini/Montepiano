@@ -17,7 +17,7 @@ const Root = styled.div`
 `;
 
 const ColorBlock = styled.div<{ color: MainColorPaletteType }>`
-  height: 60px;
+  height: 100%;
   background-color: ${({ color }) => MainColorPalette[color]};
 `;
 
@@ -27,6 +27,7 @@ const TitleAnimation = styled(motion.div)`
   left: 0;
   top: 0;
   z-index: 10;
+  height: 100%;
 `;
 
 const Title = styled.div`

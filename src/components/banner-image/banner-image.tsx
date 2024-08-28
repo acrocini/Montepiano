@@ -82,7 +82,7 @@ const Mask = styled.div<{ color: MainColorPaletteType }>`
 
 const Photo = styled.img`
   width: 100%;
-  height: 80vh;
+  height: 100%;
   object-fit: cover;
   transition: all 0.3s ease-out;
 `;
@@ -143,7 +143,7 @@ export const BannerImage: FC<BannerImageProps> = ({
               viewport: { once: true },
               transition: { duration: 0.9, ease: "easeOut" },
             }}
-            style={{ width: "100%" }}
+            style={{ width: "100%", height: "100%" }}
           >
             <Photo src={imageUrl} /> <Mask color={color} />
           </motion.div>

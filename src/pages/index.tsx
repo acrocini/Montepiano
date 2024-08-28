@@ -42,7 +42,7 @@ const IndexPage: React.FC<PageProps<Queries.HomeQuery>> = ({
             color="chestnut"
             itemSize="small"
           />
-          <LeafButton color="chestnut" href="/events-news-curiosity" label={labels["homepage-discover-montepiano-title"] ?? ""} />
+          <LeafButton color="chestnut" href="/events-news-curiosity" label={labels["discover-all-events-button"] ?? ""} />
         </div>
       </AnimatedWrapper>
       {/* <AnimatedTitle

@@ -69,6 +69,7 @@ const Mask = styled.div<{ color: MainColorPaletteType }>`
   mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   mask-size: 3000% 100%;
   animation: ${MaskAnimation} 0.7s steps(29) forwards;
+  cursor: pointer;
 `;
 
 const Root = styled.div`
@@ -104,6 +105,7 @@ const Photo = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 export const LeafCard: FC<LeafCardProps> = ({
