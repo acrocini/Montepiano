@@ -28,7 +28,7 @@ export const AnimatedWrapper: FC<PropsWithChildren<AnimatedWrapperProps>> = ({
               transition: { duration: 0.9, ease: "easeOut" },
             }}
           >
-            <div>{children}</div>;
+            <div>{children}</div>
           </motion.div>
         }
       </AnimatePresence>

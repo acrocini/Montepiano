@@ -16,7 +16,7 @@ const Root = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: min(80%, 1290px);
-`
+`;
 
 const GalleryGrid = styled.div`
   display: grid;
@@ -26,7 +26,6 @@ const GalleryGrid = styled.div`
   transition: all ${ANIMATION_TIME} ease-out;
   border-radius: 10px;
   padding: 0.25em;
-  cursor: zoom-in;
 
   @media (min-width: 40em) {
     grid-template-rows: repeat(2, 20vh);

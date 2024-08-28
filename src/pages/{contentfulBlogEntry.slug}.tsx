@@ -6,8 +6,7 @@ import styled from "styled-components";
 import { MainColorPaletteType } from "../constants/colors";
 
 const StyledBlogEntry = styled(BlogEntry)`
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin: 60px 0px;
 `;
 
 const BlogEntryPage: React.FC<PageProps<Queries.BlogEntryQuery>> = ({

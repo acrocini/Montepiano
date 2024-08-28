@@ -14,6 +14,9 @@ const Root = styled.div`
   height: calc(100vh - 90px);
   position: relative;
   overflow: hidden;
+  @media (max-width: 640px) {
+    justify-content: center;
+  }
 `;
 
 const ColorMask = styled.div`
@@ -37,14 +40,23 @@ const Photo = styled.img`
 
 const LogoWrapper = styled.div`
   display: flex;
-  padding-left: 50px;
-  padding-top: 100px;
-  width: 40px;
+  position: absolute;
+  left: 50px;
+  top: 100px;
+
+  @media (max-width: 640px) {
+    left: 0px;
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const Logo = styled.img`
   width: 700px;
-  filter: drop-shadow(3px 5px 2px #e9e5d9);
+  filter: drop-shadow(3px 3px 2px #e9e5d9);
+  @media (max-width: 640px) {
+    width: 300px;
+  }
 `;
 
 const ScrollDown = styled.div`
@@ -56,6 +68,9 @@ const ScrollDown = styled.div`
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(255, 0, 0, 0), #e9e5d9); //Alabaster
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const LogoAnimation = styled(motion.div)`
@@ -63,6 +78,10 @@ const LogoAnimation = styled(motion.div)`
   position: absolute;
   left: 0;
   top: 0;
+  @media (max-width: 640px) {
+    width: 100%;
+    justify-self: center;
+  }
 `;
 
 const ArrowAnimation = styled(motion.div)`
@@ -73,7 +92,11 @@ const ArrowAnimation = styled(motion.div)`
   width: 100%;
 `;
 
-export const HeroBanner: FC<HeroBannerProps> = ({ color, imageSrc, ...props }) => {
+export const HeroBanner: FC<HeroBannerProps> = ({
+  color,
+  imageSrc,
+  ...props
+}) => {
   return (
     <Root>
       <ColorMask />

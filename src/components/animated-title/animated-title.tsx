@@ -1,7 +1,7 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { MainColorPalette, MainColorPaletteType } from "../../constants/colors";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { FC } from "react";
 
 interface AnimatedTitleProps {
@@ -32,7 +32,8 @@ const TitleAnimation = styled(motion.div)`
 const Title = styled.div`
   color: #e9e5d9; //Alabaster
   font-weight: bold;
-
+  padding-top: 5px;
+  padding-bottom: 10px;
   font-size: 40px;
   display: flex;
   width: 100%;
@@ -41,6 +42,9 @@ const Title = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
+  @media (max-width: 640px) {
+    font-size: 30px;
+  }
 `;
 
 export const AnimatedTitle: FC<AnimatedTitleProps> = ({

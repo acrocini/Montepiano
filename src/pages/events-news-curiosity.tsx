@@ -1,6 +1,5 @@
 import * as React from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
-import { BannerText } from "../components/banner-text/banner-text";
 import { Layout } from "../components/layout/layout";
 import styled from "styled-components";
 import { LeafButton } from "../components/leaf-button/leaf-button";
@@ -39,7 +38,6 @@ const AllEventsArticlesPage: React.FC<
 
   return (
     <Layout color="chestnut" {...contentfulLayout!}>
-      <BannerText color="chestnut" title={contentfulLabel?.label ?? ""} />
       <SectionIndex>
         <LeafButton color="chestnut" label="Eventi" href="/eventi" />
         <LeafButton color="chestnut" label="News" href="/news" />

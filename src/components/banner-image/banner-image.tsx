@@ -3,6 +3,7 @@ import styled, { css, keyframes } from "styled-components";
 import { MainColorPalette, MainColorPaletteType } from "../../constants/colors";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC } from "react";
+import { LeafButton } from "../leaf-button/leaf-button";
 
 export interface BannerImageProps {
   label: string;
@@ -30,6 +31,9 @@ const Label = styled.div`
   color: #e9e5d9; //Alabaster
   cursor: pointer;
   transition: all 0.3s ease-out;
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const MaskAnimation = keyframes`
@@ -42,6 +46,7 @@ const MaskAnimation = keyframes`
   -webkit-mask-position: 100% 0;
   mask-position: 100% 0;
  }
+
 `;
 
 const MaskAnimationHover = keyframes`
@@ -54,6 +59,7 @@ const MaskAnimationHover = keyframes`
   -webkit-mask-position: 0 0;
   mask-position: 0 0;
  }
+
 `;
 
 const Mask = styled.div<{ color: MainColorPaletteType }>`
@@ -69,6 +75,9 @@ const Mask = styled.div<{ color: MainColorPaletteType }>`
   mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   mask-size: 3000% 100%;
   animation: ${MaskAnimation} 0.7s steps(29) forwards;
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const Photo = styled.img`
@@ -88,16 +97,30 @@ const Root = styled.a`
   align-items: center;
   transition: all 0.3s ease-out;
   cursor: pointer;
-  &:hover {
-    ${Mask} {
-      animation: ${MaskAnimationHover} 0.7s steps(29) forwards;
+  @media (min-width: 641px) {
+    &:hover {
+      ${Mask} {
+        animation: ${MaskAnimationHover} 0.7s steps(29) forwards;
+      }
+      ${Label} {
+        opacity: 1;
+      }
+      ${Photo} {
+        transform: scale(1.5);
+      }
     }
-    ${Label} {
-      opacity: 1;
-    }
-    ${Photo} {
-      transform: scale(1.5);
-    }
+  }
+`;
+
+const ChaletButtonWrapper = styled.div`
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  z-index: 20;
+  width: 100%;
+  @media (max-width: 640px) {
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -127,6 +150,9 @@ export const BannerImage: FC<BannerImageProps> = ({
         }
       </AnimatePresence>
       <Label> {label} </Label>
+      <ChaletButtonWrapper>
+        <LeafButton color={color} label={label} />
+      </ChaletButtonWrapper>
     </Root>
   );
 };
