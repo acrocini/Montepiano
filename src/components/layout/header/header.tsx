@@ -5,20 +5,15 @@ import { DropdownMenu, DropdownMenuProps } from "./dropdown-menu/dropdown-menu";
 import { MainColorPaletteType } from "../../../constants/colors";
 import { FC } from "react";
 
-//TODO se la apgina è troppo bassa l'header si ingrippa
+//TODO se la pagina è troppo bassa l'header si ingrippa
 export interface HeaderProps extends Queries.LayoutDataFragment {
   color: MainColorPaletteType;
 }
 
 const Root = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   z-index: 100;
-`;
-
-// Needed to insert header into page elements flow
-const Spacer = styled.div`
-  height: 90px;
 `;
 
 export const Header: FC<HeaderProps> = ({
@@ -65,26 +60,23 @@ export const Header: FC<HeaderProps> = ({
   }, []);
 
   return (
-    <>
-      <Spacer />
-      <Root>
-        <HeaderMain
-          color={color}
-          hamburgerButtonOnClick={HandleHamburgerButtonOnClick}
-          dropdownButtonRef={dropDownButtonRef}
-          {...{
-            facebookUrl,
-            whatsappUrl,
-            instagramUrl,
-          }}
-        />
-        <DropdownMenu
-          color={color}
-          isOpen={isOpen}
-          ref={dropDowMenuRef}
-          sections={completeSections}
-        />
-      </Root>
-    </>
+    <Root>
+      <HeaderMain
+        color={color}
+        hamburgerButtonOnClick={HandleHamburgerButtonOnClick}
+        dropdownButtonRef={dropDownButtonRef}
+        {...{
+          facebookUrl,
+          whatsappUrl,
+          instagramUrl,
+        }}
+      />
+      <DropdownMenu
+        color={color}
+        isOpen={isOpen}
+        ref={dropDowMenuRef}
+        sections={completeSections}
+      />
+    </Root>
   );
 };
