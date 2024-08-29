@@ -70,7 +70,7 @@ const Mask = styled.div<{ color: MainColorPaletteType }>`
   width: 101%;
   height: 100%;
   background-color: ${({ color }) => MainColorPalette[color]};
-  opacity: 0.7;
+  opacity: 0.8;
   //transition: all 0.3s ease-out;
   mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
   mask-size: 3000% 100%;
@@ -124,6 +124,22 @@ const ChaletButtonWrapper = styled.div`
   }
 `;
 
+const ColorMask = styled.div`
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #90bcac;
+  background-blend-mode: multiply;
+  opacity: 50%;
+  z-index: 5;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  @media (max-width: 640px) {
+    display: flex;
+  }
+`;
+
 export const BannerImage: FC<BannerImageProps> = ({
   label,
   color,
@@ -134,6 +150,7 @@ export const BannerImage: FC<BannerImageProps> = ({
 }) => {
   return (
     <Root href={linkUrl}>
+      <ColorMask />
       <AnimatePresence mode={"popLayout"}>
         {
           <motion.div

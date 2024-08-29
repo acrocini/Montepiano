@@ -22,9 +22,9 @@ const Root = styled.div`
 const ColorMask = styled.div`
   display: flex;
   width: 100%;
-  height: calc(100vh - 90px);
+  height: 100%;
   background-color: #e9e5d9; //Alabaster
-  opacity: 20%;
+  opacity: 15%;
   z-index: 5;
   position: absolute;
   left: 0px;
@@ -41,8 +41,8 @@ const Photo = styled.img`
 const LogoWrapper = styled.div`
   display: flex;
   position: absolute;
-  left: 50px;
-  top: 100px;
+  left: 80px;
+  top: 80px;
 
   @media (max-width: 640px) {
     left: 0px;
@@ -62,15 +62,12 @@ const Logo = styled.img`
 const ScrollDown = styled.div`
   display: flex;
   width: 100%;
-  height: 200px;
+  height: 150px;
   color: #273e0a;
   font-size: 100px;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(255, 0, 0, 0), #e9e5d9); //Alabaster
-  @media (max-width: 640px) {
-    display: none;
-  }
 `;
 
 const LogoAnimation = styled(motion.div)`
