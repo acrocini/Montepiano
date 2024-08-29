@@ -107,17 +107,35 @@ const TextBox = styled(RichText)<{ color: MainColorPaletteType }>`
   } */
 `;
 
-const ImageAnimatedWrapper = styled(motion.div)`
+const VerticalImageAnimatedWrapper = styled(motion.div)<
+  Pick<BlogEntryProps, "direction">
+>`
   display: flex;
   justify-content: center;
-  flex-basis: 30%;
+  flex-basis: 40%;
+  flex-shrink: 0;
+  display: ${({ direction }) => (direction === "vertical" ? "block" : "none")};
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
-const Photo = styled.img<Pick<BlogEntryProps, "direction">>`
-  width: ${({ direction }) => (direction === "horizontal" ? "80%" : "100%")};
-
+const HorizontalImageAnimatedWrapper = styled(motion.div)<
+  Pick<BlogEntryProps, "direction">
+>`
+  display: flex;
+  justify-content: center;
+  flex-basis: 40%;
+  flex-shrink: 0;
+  display: ${({ direction }) => (direction === "vertical" ? "none" : "block")};
   @media (max-width: 640px) {
+    display: block;
+    width: 100%;
   }
+`;
+
+const Photo = styled.img`
+  width: 100%;
 `;
 
 export const BlogEntry: FC<BlogEntryProps> = ({
@@ -168,8 +186,9 @@ export const BlogEntry: FC<BlogEntryProps> = ({
             </motion.div>
           )}
 
-          {direction === "horizontal" && poster?.url && (
-            <ImageAnimatedWrapper
+          {poster?.url && (
+            <HorizontalImageAnimatedWrapper
+              direction={direction}
               {...{
                 initial: { opacity: 0 },
                 whileInView: { opacity: 1 },
@@ -177,8 +196,8 @@ export const BlogEntry: FC<BlogEntryProps> = ({
                 transition: { ease: "easeOut", duration: 0.4, delay: 0.5 },
               }}
             >
-              <Photo src={poster?.url} direction={direction} />
-            </ImageAnimatedWrapper>
+              <Photo src={poster?.url} />
+            </HorizontalImageAnimatedWrapper>
           )}
           {body?.raw &&
             (direction === "horizontal" ? (
@@ -205,8 +224,9 @@ export const BlogEntry: FC<BlogEntryProps> = ({
               </motion.div>
             ))}
         </ColumnWrapper>
-        {direction === "vertical" && poster?.url && (
-          <ImageAnimatedWrapper
+        {poster?.url && (
+          <VerticalImageAnimatedWrapper
+            direction={direction}
             {...{
               initial: { translateX: "100%", opacity: 0 },
               whileInView: { translateX: "0%", opacity: 1 },
@@ -214,8 +234,8 @@ export const BlogEntry: FC<BlogEntryProps> = ({
               transition: { ease: "easeOut", duration: 0.4 },
             }}
           >
-            <Photo src={poster?.url} direction={direction} />
-          </ImageAnimatedWrapper>
+            <Photo src={poster?.url} />
+          </VerticalImageAnimatedWrapper>
         )}
       </Root>
       <Gallery

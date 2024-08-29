@@ -7,7 +7,8 @@ import {
   MainColorPaletteType,
 } from "../../../../constants/colors";
 
-export interface DropdownMenuProps extends Pick<Queries.LayoutDataFragment, "sections"> {
+export interface DropdownMenuProps
+  extends Pick<Queries.LayoutDataFragment, "sections"> {
   color: MainColorPaletteType;
   isOpen: boolean;
 }
@@ -33,13 +34,16 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
             transition={{ ease: "easeOut", duration: 0.4 }}
           >
             <Root color={color} ref={ref}>
-              {sections?.map((page) => (
-                page && <DropdownMenuButton
-                  linkUrl={`/${page.slug}`}
-                  label={page.title}
-                  color={color}
-                />
-              ))}
+              {sections?.map(
+                (page) =>
+                  page && (
+                    <DropdownMenuButton
+                      linkUrl={`/${page.slug}`}
+                      label={page.title}
+                      color={color}
+                    />
+                  )
+              )}
             </Root>
           </motion.div>
         )}
