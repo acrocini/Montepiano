@@ -37,6 +37,7 @@ const TopWrapper = styled(Container)`
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
+
   @media (max-width: 640px) {
     flex-direction: column;
     justify-content: center;

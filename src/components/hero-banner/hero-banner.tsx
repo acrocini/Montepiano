@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { FC } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Container } from "../container/container";
 
 export interface HeroBannerProps {
   color: "alabaster" | "pakistan-green";
@@ -38,11 +39,9 @@ const Photo = styled.img`
   object-fit: cover;
 `;
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled(Container)`
   display: flex;
-  position: absolute;
-  left: 80px;
-  top: 80px;
+  top: 100px;
 
   @media (max-width: 640px) {
     left: 0px;
@@ -75,6 +74,7 @@ const LogoAnimation = styled(motion.div)`
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
   @media (max-width: 640px) {
     width: 100%;
     justify-self: center;

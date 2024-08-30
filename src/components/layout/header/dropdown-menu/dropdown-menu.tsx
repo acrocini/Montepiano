@@ -20,6 +20,11 @@ const Root = styled.div<{ color: MainColorPaletteType }>`
   flex-direction: column;
   align-items: stretch;
   background-color: ${({ color }) => MainColorPalette[color]};
+  @media (max-width: 640px) {
+    width: 100%;
+    height: calc(100vh - 90px);
+    overflow: scroll;
+  }
 `;
 
 export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
