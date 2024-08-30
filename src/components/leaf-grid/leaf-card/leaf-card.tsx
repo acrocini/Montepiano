@@ -84,19 +84,21 @@ const Root = styled.div`
   transition: all 1s ease-out;
   filter: drop-shadow(5px 5px 2px gray);
   cursor: pointer;
-  &:hover {
-    border-radius: 100%;
+  @media (min-width: 640px) {
+    &:hover {
+      border-radius: 100%;
 
-    filter: drop-shadow(10px 10px 2px gray);
+      filter: drop-shadow(10px 10px 2px gray);
 
-    transform: translateY(-5px);
+      transform: translateY(-5px);
 
-    ${Mask} {
-      animation: ${MaskAnimationHover} 0.7s steps(29) forwards;
-    }
-    ${Label} {
-      opacity: 1;
-      transition-delay: 0.7s;
+      ${Mask} {
+        animation: ${MaskAnimationHover} 0.7s steps(29) forwards;
+      }
+      ${Label} {
+        opacity: 1;
+        transition-delay: 0.7s;
+      }
     }
   }
 `;

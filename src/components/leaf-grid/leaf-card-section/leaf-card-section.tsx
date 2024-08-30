@@ -8,20 +8,14 @@ import {
 } from "../../../constants/colors";
 import { graphql } from "gatsby";
 
-export interface LeafCardSectionProps extends Queries.BlogSectionCardDataFragment{
+export interface LeafCardSectionProps
+  extends Queries.BlogSectionCardDataFragment {
   color: MainColorPaletteType;
 }
 
 const Root = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const Date = styled.div<{ color: MainColorPaletteType }>`
-  display: flex;
-  color: ${({ color }) => MainColorPalette[color]};
-  font-size: 24px;
-  padding-bottom: 10px;
 `;
 
 const Title = styled.div<{ color: MainColorPaletteType }>`
@@ -42,7 +36,7 @@ export const LeafCardSection: FC<LeafCardSectionProps> = ({
   color,
   ...props
 }) => {
-  return ((cardImage?.url) &&
+  return cardImage?.url ? (
     <Root {...props}>
       <LeafCard
         label="Scopri"
@@ -52,15 +46,15 @@ export const LeafCardSection: FC<LeafCardSectionProps> = ({
       />
       <Title color={color}> {title} </Title>
     </Root>
-  );
+  ) : null;
 };
 
 export const query = graphql`
-  fragment BlogSectionCardData on ContentfulBlogSection{
+  fragment BlogSectionCardData on ContentfulBlogSection {
     title
-    cardImage{
+    cardImage {
       url
     }
     slug
   }
-`
+`;
