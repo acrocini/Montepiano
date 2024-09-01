@@ -7,8 +7,6 @@ import { BannerImage } from "../components/banner-image/banner-image";
 import { LeafButton } from "../components/leaf-button/leaf-button";
 import { Layout } from "../components/layout/layout";
 
-//TODO metti le scatoline dove devono stare
-
 const IndexPage: React.FC<PageProps<Queries.HomeQuery>> = ({
   data: { contentfulHomepage, contentfulLayout, allContentfulLabel },
 }) => {
@@ -22,7 +20,7 @@ const IndexPage: React.FC<PageProps<Queries.HomeQuery>> = ({
   const { heroImage, highlightedArticles, indexPages, chaletImage } =
     contentfulHomepage;
   return (
-    <Layout color="pakistan-green" {...contentfulLayout!}>
+    <Layout color="pakistan-green" {...contentfulLayout!} $isPadded={false}>
       <HeroBanner color="pakistan-green" imageSrc={heroImage?.url} />
       <AnimatedTitle
         label={labels["homepage-highligted-events-title"] ?? ""}
@@ -41,7 +39,7 @@ const IndexPage: React.FC<PageProps<Queries.HomeQuery>> = ({
         <LeafGrid
           items={highlightedArticles as Queries.BlogEntryCardDataFragment[]}
           color="chestnut"
-          itemSize="small"
+          itemsize="small"
           direction="left"
         />
         <LeafButton
@@ -76,7 +74,7 @@ const IndexPage: React.FC<PageProps<Queries.HomeQuery>> = ({
       <LeafGrid
         items={indexPages as Queries.BlogSectionCardDataFragment[]}
         color="field-drab"
-        itemSize="small"
+        itemsize="small"
         direction="right"
       />
       <AnimatedTitle

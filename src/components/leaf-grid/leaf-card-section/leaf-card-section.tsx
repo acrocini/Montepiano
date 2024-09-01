@@ -18,7 +18,7 @@ const Root = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.div<{ color: MainColorPaletteType }>`
+const Title = styled.a<{ color: MainColorPaletteType }>`
   line-height: 1;
   display: flex;
   color: ${({ color }) => MainColorPalette[color]};
@@ -44,7 +44,7 @@ export const LeafCardSection: FC<LeafCardSectionProps> = ({
         imageUrl={cardImage?.url}
         color={color}
       />
-      <Title color={color}> {title} </Title>
+      <Title color={color} href={`/${slug}`}> {title} </Title>
     </Root>
   ) : null;
 };

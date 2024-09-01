@@ -6,11 +6,6 @@ import { LeafButton } from "../components/leaf-button/leaf-button";
 import { LeafGrid } from "../components/leaf-grid/leaf-grid";
 import { orderBy } from "lodash";
 
-/* animazione linea= initial: { translateX: direction === "left" ? "-100%" : "100%" },
-              whileInView: { translateX: "0%" },
-              viewport: { once: true },
-              transition: { duration: 0.9, ease: "easeOut" },  */
-
 const SectionIndex = styled.div`
   display: flex;
   flex-direction: row;
@@ -22,7 +17,7 @@ const SectionIndex = styled.div`
 const AllEventsArticlesPage: React.FC<
   PageProps<Queries.AllEventsArticlesQuery>
 > = ({
-  data: { contentfulLayout, contentfulLabel, allContentfulBlogEntrySection },
+  data: { contentfulLayout, allContentfulBlogEntrySection },
 }) => {
   const articles = allContentfulBlogEntrySection?.nodes?.reduce<
     Queries.BlogEntryCardDataFragment[]
@@ -43,7 +38,7 @@ const AllEventsArticlesPage: React.FC<
         <LeafButton color="chestnut" label="News" href="/news" />
         <LeafButton color="chestnut" label="Curiosità" href="/curiosita" />
       </SectionIndex>
-      <LeafGrid itemSize="big" color={"chestnut"} items={sortedArticles} />
+      <LeafGrid itemsize="big" color={"chestnut"} items={sortedArticles} />
     </Layout>
   );
 };

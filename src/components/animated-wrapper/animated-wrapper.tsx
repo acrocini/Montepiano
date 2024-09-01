@@ -4,22 +4,28 @@ import { FC } from "react";
 import { motion } from "framer-motion";
 
 export interface AnimatedWrapperProps {
-  direction: "left" | "right";
+  direction?: "left" | "right" | "bottom";
 }
 
 export const AnimatedWrapper: FC<PropsWithChildren<AnimatedWrapperProps>> = ({
-  direction,
   children,
+  direction = "bottom",
   ...props
 }) => {
   return (
     <motion.div
       {...{
         initial: {
-          translateX: direction === "left" ? "-100%" : "100%",
+          translateX:
+            direction === "bottom"
+              ? "0%"
+              : direction === "left"
+              ? "-100%"
+              : "100%",
           opacity: 0,
+          translateY: direction === "bottom" ? "60px" : "0px",
         },
-        whileInView: { translateX: "0%", opacity: 1 },
+        whileInView: { translateX: "0%", opacity: 1, translateY: "0px" },
         viewport: { once: true },
         transition: { duration: 0.9, ease: "easeOut" },
       }}

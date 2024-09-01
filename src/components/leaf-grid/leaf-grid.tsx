@@ -23,9 +23,9 @@ export interface LeafGridProps {
     | readonly Queries.BlogEntryCardDataFragment[]
     | readonly Queries.BlogSectionCardDataFragment[]
     | null;
-  itemSize: "small" | "big";
+  itemsize: "small" | "big";
   color: MainColorPaletteType;
-  direction: AnimatedWrapperProps["direction"];
+  direction?: AnimatedWrapperProps["direction"];
 }
 
 const Root = styled(Container)`
@@ -38,6 +38,7 @@ const Root = styled(Container)`
   flex-wrap: wrap;
   row-gap: 60px;
   width: 100%;
+  overflow: hidden;
   @media (max-width: 640px) {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -45,10 +46,10 @@ const Root = styled(Container)`
 `;
 
 const StyledAnimatedWrapper = styled(AnimatedWrapper)<
-  Pick<LeafGridProps, "itemSize">
+  Pick<LeafGridProps, "itemsize">
 >`
   flex-grow: 0;
-  flex-basis: ${({ itemSize }) => (itemSize === "small" ? "15%" : "20%")};
+  flex-basis: ${({ itemsize: itemSize }) => (itemSize === "small" ? "15%" : "20%")};
   flex-shrink: 0;
 
   @media (max-width: 640px) {
@@ -58,15 +59,15 @@ const StyledAnimatedWrapper = styled(AnimatedWrapper)<
 
 export const LeafGrid: FC<LeafGridProps> = ({
   items,
-  itemSize,
+  itemsize: itemSize,
   color,
   direction,
   ...props
 }) => {
   return (
     <Root {...props}>
-      {items?.map((item) => (
-        <StyledAnimatedWrapper direction={direction} itemSize={itemSize}>
+      {items?.map((item, i) => (
+        <StyledAnimatedWrapper direction={direction} itemsize={itemSize} key={i}>
           {isEvent(item) ? (
             <LeafCardEvent {...item} color={color} />
           ) : (

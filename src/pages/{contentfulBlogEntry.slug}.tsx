@@ -2,12 +2,8 @@ import * as React from "react";
 import { graphql, HeadProps, type PageProps } from "gatsby";
 import { BlogEntry } from "../components/blog-entry/blog-entry";
 import { Layout } from "../components/layout/layout";
-import styled from "styled-components";
 import { MainColorPaletteType } from "../constants/colors";
 
-const StyledBlogEntry = styled(BlogEntry)`
-  margin: 60px 0px;
-`;
 
 const BlogEntryPage: React.FC<PageProps<Queries.BlogEntryQuery>> = ({
   data: { contentfulBlogEntry, contentfulLayout },
@@ -15,7 +11,7 @@ const BlogEntryPage: React.FC<PageProps<Queries.BlogEntryQuery>> = ({
   const color = contentfulBlogEntry?.section?.color as MainColorPaletteType;
   return (
     <Layout {...contentfulLayout!} color={color}>
-      <StyledBlogEntry
+      <BlogEntry
         {...(contentfulBlogEntry as Queries.BlogEntryDataFragment)}
         color={color}
       />

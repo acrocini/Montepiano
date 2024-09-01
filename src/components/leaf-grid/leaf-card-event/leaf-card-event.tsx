@@ -29,7 +29,7 @@ const Date = styled.div<{ color: MainColorPaletteType }>`
   }
 `;
 
-const Title = styled.div<{ color: MainColorPaletteType }>`
+const Title = styled.a<{ color: MainColorPaletteType }>`
   line-height: 1;
   display: flex;
   color: ${({ color }) => MainColorPalette[color]};
@@ -50,6 +50,7 @@ export const LeafCardEvent: FC<LeafCardEventProps> = ({
   poster,
   slug,
   color,
+  showIndex,
   ...props
 }) => {
   const date = _date ? getFormattedDate(_date) : null;
@@ -63,7 +64,7 @@ export const LeafCardEvent: FC<LeafCardEventProps> = ({
         imageUrl={cardImage?.url ?? poster?.url}
         color={color}
       />
-      <Title color={color}> {title} </Title>
+      <Title color={color} href={`/${slug}`}> {title} </Title>
     </Root>
   ) : null;
 };

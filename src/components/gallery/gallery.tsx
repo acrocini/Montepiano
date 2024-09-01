@@ -63,13 +63,13 @@ export const Gallery: FC<GalleryProps> = ({ items: items, ...props }) => {
     <Container>
     <Root>
       <GalleryGrid>
-        {items?.map((item) => (
-          <GalleryItem imageUrl={item} />
+        {items?.map((item, i) => (
+          <GalleryItem imageUrl={item} key={i}/>
         ))}
       </GalleryGrid>
       <GalleryGridMobile>
-        {items?.map((item) => (
-          <GalleryItemMobile src={item} />
+        {items?.map((item, i) => (
+          <GalleryItemMobile src={item} key={i}/>
         ))}
       </GalleryGridMobile>
     </Root>
