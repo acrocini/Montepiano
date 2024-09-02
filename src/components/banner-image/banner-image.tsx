@@ -150,18 +150,22 @@ export const BannerImage: FC<BannerImageProps> = ({
 }) => {
   return (
     <Root href={linkUrl}>
-      <motion.div
-        {...{
-          initial: { translateX: direction === "left" ? "-100%" : "100%" },
-          whileInView: { translateX: "0%" },
-          viewport: { once: true },
-          transition: { duration: 0.9, ease: "easeOut" },
-        }}
-        style={{ width: "100%", height: "100%" }}
-      >
-        <ColorMask />
-        <Photo src={imageUrl} /> <Mask color={color} />
-      </motion.div>
+      <AnimatePresence mode={"popLayout"}>
+        {
+          <motion.div
+            {...{
+              initial: { translateX: direction === "left" ? "-100%" : "100%" },
+              whileInView: { translateX: "0%" },
+              viewport: { once: true },
+              transition: { duration: 0.9, ease: "easeOut" },
+            }}
+            style={{ width: "100%", height: "100%" }}
+          >
+            <ColorMask />
+            <Photo src={imageUrl} /> <Mask color={color} />
+          </motion.div>
+        }
+      </AnimatePresence>
       <Label> {label} </Label>
       <ChaletButtonWrapper>
         <LeafButton color={color} label={label} />
