@@ -5,20 +5,25 @@ import styled from "styled-components";
 import { LeafButton } from "../components/leaf-button/leaf-button";
 import { LeafGrid } from "../components/leaf-grid/leaf-grid";
 import { orderBy } from "lodash";
+import { Container } from "../components/container/container";
 
-const SectionIndex = styled.div`
+const SectionIndex = styled(Container)`
   display: flex;
   flex-direction: row;
   gap: 30px;
   margin-right: auto;
   margin-left: auto;
+  justify-content: center;
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+  }
 `;
 
 const AllEventsArticlesPage: React.FC<
   PageProps<Queries.AllEventsArticlesQuery>
-> = ({
-  data: { contentfulLayout, allContentfulBlogEntrySection },
-}) => {
+> = ({ data: { contentfulLayout, allContentfulBlogEntrySection } }) => {
   const articles = allContentfulBlogEntrySection?.nodes?.reduce<
     Queries.BlogEntryCardDataFragment[]
   >(

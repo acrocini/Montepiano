@@ -25,17 +25,17 @@ const Root = styled.div<{ color: MainColorPaletteType }>`
   z-index: 10;
 `;
 
-const HeaderWrapper = styled(Container)`
+const HeaderWrapper = styled.div`
   position: relative;
   height: 90px;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 20px;
   @media (max-width: 640px) {
     flex-direction: row-reverse;
+    padding: 5px 30px;
   }
 `;
 
