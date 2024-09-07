@@ -55,7 +55,7 @@ const GalleryGridMobile = styled.div`
 
 const GalleryItemMobile = styled.img`
   width: 100%;
-  object-fit: scale-down;
+  object-fit: contain;
 `;
 
 export const Gallery: FC<GalleryProps> = ({ items: items, ...props }) => {

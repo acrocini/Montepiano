@@ -126,5 +126,3 @@ export const LeafCard: FC<LeafCardProps> = ({
     </a>
   );
 };
-
-//TODO sistemare la story per le dimensioni

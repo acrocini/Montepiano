@@ -16,8 +16,6 @@ import {
   AnimatedWrapperProps,
 } from "../animated-wrapper/animated-wrapper";
 
-//TODO il colore delle card deve essere omogeneo quindi deve essere preso come proprietà e sovrascritto
-//TODO Alberto - ripensare
 export interface LeafGridProps {
   items:
     | readonly Queries.BlogEntryCardDataFragment[]

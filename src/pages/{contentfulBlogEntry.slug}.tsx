@@ -21,7 +21,7 @@ const BlogEntryPage: React.FC<PageProps<Queries.BlogEntryQuery>> = ({
 
 export default BlogEntryPage;
 
-//TODO ALBERTO FIXARE IL SEO
+//TODO Complete Seo
 export const Head: React.FC<HeadProps<Queries.BlogEntryQuery>> = ({
   data: { contentfulBlogEntry },
 }) => <title>Montepiano | {contentfulBlogEntry?.title}</title>;

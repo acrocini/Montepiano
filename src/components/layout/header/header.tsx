@@ -64,6 +64,14 @@ export const Header: FC<HeaderProps> = ({
     window.addEventListener("click", handleClickOutsideDropdown);
   }, []);
 
+  useEffect(() => {
+    if(isOpen && window?.innerWidth && window.innerWidth <= 640){
+      document.body.style.overflowY = "hidden"
+    } else {
+      document.body.style.overflowY = "scroll"
+    }
+  },[isOpen, window])
+
   return (
     <>
       <Spacer />

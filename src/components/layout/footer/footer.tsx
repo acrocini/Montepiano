@@ -101,7 +101,6 @@ export const Footer: FC<FooterProps> = ({
   whatsappUrl,
   ...props
 }) => {
-  //TODO - ALBERTO rich text non funziona controllare
   const { allContentfulSponsor, contentfulRichTextLabel } =
     useStaticQuery<Queries.Query>(graphql`
       query {
@@ -145,5 +144,3 @@ export const Footer: FC<FooterProps> = ({
     </Root>
   );
 };
-
-// TODO MANDARE A CAPO IL TESTO, CREARE CARTELLINA PER I SOCIAL, ALLINEARE LA TESTA

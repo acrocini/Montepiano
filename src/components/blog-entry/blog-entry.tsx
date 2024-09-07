@@ -13,15 +13,11 @@ import { getFormattedDate } from "../../utils/get-formatted-date";
 import { RichText } from "../rich-text/rich-text";
 import { Gallery } from "../gallery/gallery";
 
-//TODO inserire un controllo che inserisce le varie parti del componente solo quanod ci sono i dati corrispettivi nel database
-//TODO quando l'articolo è horizontal le animazioni dovrebbero entrare leggermente da sotto passando da opacità 0 a opacità 1
-
 export interface BlogEntryProps extends Queries.BlogEntryDataFragment {
   color: MainColorPaletteType;
 }
 
-// TODO frecce per switchare tra gli eventi per sfogliarli senza tornare alla pagina principale?
-// TODO filtro per ordinarli per data? Mettere in evidenza?
+// TODO nice to have filtro per ordinarli per data? Mettere in evidenza?
 
 const Root = styled(Container)`
   display: flex;
